@@ -1,20 +1,74 @@
+body {
+
+	padding-top: 20px;
+    padding-bottom: 20px;
+
+	background-color: #333;
+	background-image: linear-gradient(12deg, #111, #444);
+
+	color: #eee;
+	font-family: sans-serif;
+}
+
+#container {
+	max-width: 1400px;
+	background-color: #eee;
+}
+
+#event_container {
+	/*width: 100%;*/
+	/*display: inline;*/
+	height: 100%;
+		border-style: solid;
+	border-width: 2px;
+	border-color: white;
+}
+
+.people {
+	height: 100%;
+
+	border-style: solid;
+	border-width: 2px;
+	border-color: blue;
+}
+
 .rounded-corners {
-	border-radius: 16px;
+	border-radius: 12px;
 }
 
 .available {
-	background: green;
+	background: #3d2;
 }
 
 .unavailable {
-	background: #bfbfbf;
+	background: #e56;
 }
 
 .undecided {
-	background: #ccc;
+	background: #aaa;
 }
 
 .date {
+	/*height: 32px;*/
+	padding: 4px;
+	display: inline;
+	margin-right: 2px;
+	float: left;
+}
+
+.avatar {
+	float: left;
+}
+
+.avatar img {
 	height: 32px;
-	width: 160px;
+	width: 32px;
+	vertical-align: middle;
+}
+
+.name {
+	height: 32px;
+	line-height: 32px;
+	float: left;
+	vertical-align: middle;
 }
