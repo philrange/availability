@@ -6,11 +6,17 @@
 
 	<link rel="stylesheet" href="/styles/style.css">
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 
-<!-- 		<?php 
-	// require_once 'scripts/db.php';
-	// require_once 'scripts/db_config.php';
-?> -->
+
+	<?php 
+	 require_once 'scripts/../../db_config.php';
+	 require_once 'scripts/db.php';
+	 require_once 'scripts/html.php';
+	 require_once 'scripts/person.php';
+	?>
 
 </head>
 
@@ -18,7 +24,7 @@
 
 tertr
 <div>Hrllo
-sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>fkdghdjfkhgdkkklkdjshglkdsjfghlkjdsfghkljdsfgh;ldjkfhglsdkjfghlsdfjkhglsdkjfghlsdjfghlsdjfghldsjkghldsjkghgfhfghfhklkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldsk jghldsjkfghlhfghfhklkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfh klkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkk kksdljkfhgl dsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfhklkkkkk kkkkkkkkkkkkkkk kk kkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlh fghfhklkkkkkk kkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk ksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlds fjghds;lfjhgldsjfghldsjghldsgohs;doghdlkjfghldjkghljkfhshf.jsladfnhl;asfhdy;lsfhlkjasfhlashfl;kjasfdhljsadhfjkhsdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br></div>
+sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfdhsdljkghdlskjghldsjkfghldsk jghldsjkfghlhfghfhklkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfh klkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkk kksdljkfhgl dsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfhklkkkkk kkkkkkkkkkkkkkk kk kkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlh fghfhklkkkkkk kkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk ksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlds fjghds;lfjhgldsjfghldsjghldsgohs;doghdlkjfghldjkghljdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br></div>
 
 <div id='container'>
 	<div id='event_selector'>
@@ -27,29 +33,44 @@ sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd
 	<div id='event_container'>
 
 		<!-- todo move into php generator-->
-		<div class='people'>
-			<div id='username_test' class='date rounded-corners unavailable'>
-				<div class='avatar'><img src='images/default.png'></div>
-				<div class='name'>TestyMcTest</div>
-			</div>
+		<div id="date_20160623" class="dateRow">
+			<div class="padding"></div>
+			<div class="date rounded-corners available">Monday 16th June</div>
 
-			<div id='username_phil' class='date rounded-corners available'>
-				<div class='avatar'><img src='images/default.png'></div>
-				<div class='name'>Phil</div>
-			</div>
-
-			<div id='username_test2' class='date rounded-corners undecided'>
-				<div class='avatar'><img src='images/default.png'></div>
-				<div class='name'>ASnbdfkjsdgfk</div>
+			<div class='people'>
+				<div id="personList_20160623_available" class='personList'>
+					<?php
+					echo displayAvailablePeopleForDate(1, 2);
+					?>
+				</div>
+				<div id="personList_20160623_unavailable" class='personList'>
+					<?php
+					echo displayUnavailablePeopleForDate(1, 2);
+					?>
+				</div>
+				<div id="personList_20160623_undecided" class='personList'>
+					<?php
+					echo displayUndecidedPeopleForDate(1, 2);
+					?>
+				</div>
 			</div>
 		</div>
 
+<script type="text/javascript">
+
+	$('.date').click(function() { 
+		toggle($(this));
+	});
+
+
+
+</script>
 
 	</div>
 
 </div>
 
 
-
+<script src="scripts/main.js"></script>
 </body>
 </html>

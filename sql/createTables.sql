@@ -25,6 +25,7 @@ create table availability (
 	person int(16),
 	date int(16),
 	available varchar(16),
+	PRIMARY KEY (event, person, date),
 	FOREIGN KEY (event) REFERENCES events(id),
 	FOREIGN KEY (person) REFERENCES people(id),
 	FOREIGN KEY (date) REFERENCES dates(id)
