@@ -18,9 +18,29 @@ function connectToDb() {
     return $conn;
 }
 
+function getDates($event) {
+    $sql = "select date from dates where event = " . $event;
+
+    $conn = connectToDb();
+    $result = mysqli_query($conn, $sql);
+
+    $dates = array();
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            $date = $row["date"];
+            $dates[] = $date;
+        }
+    } else {
+        echo "0 results found.";
+    }
+
+    return $dates;
+}
+
 function getPeopleForDate($event, $date, $status) {
 
-    $sql = "SELECT p.username, p.displayName, p.picture, a.available from availability a, people p where a.person = p.id and a.event = " . $event . " and a.date = " . $date . " and a.available = '" . $status . "'";
+    $sql = "SELECT p.username, p.displayName, p.picture, a.available from availability a, people p, dates d where a.person = p.id and a.date = d.id and a.event = " . $event . " and d.date = '" . $date . "' and a.available = '" . $status . "'";
 
     return getPeople($sql);
 }
@@ -47,7 +67,7 @@ function getPeople($sql) {
             $people[] = $person;
         }
     } else {
-        echo "0 results found.";
+        //echo "0 results found.";
     }
 
     return $people;

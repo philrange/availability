@@ -4,7 +4,7 @@ body {
     padding-bottom: 20px;
 
 	background-color: #333;
-	background-image: linear-gradient(140deg, #111, #444);
+	background-image: linear-gradient(140deg, #333, #555);
 
 	color: #eee;
 	font-family: sans-serif;
@@ -16,11 +16,11 @@ body {
 }
 
 #event_container {
-	height: 100%;
+	/*height: 100%;*/
 }
 
 .people {
-	height: 100%;
+	/*height: 100%;*/
 	float: left;
 
 /*	border-style: solid;
@@ -35,6 +35,7 @@ body {
 .personList {
 	float: left;
 	clear: both;
+	min-height: 36px;
 }
 
 .available {
@@ -42,7 +43,7 @@ body {
 }
 
 .unavailable {
-	background: #e56;
+	background: #ae0000;
 }
 
 .undecided {
@@ -50,7 +51,7 @@ body {
 }
 
 .dateRow {
-
+	clear: both;
 }
 
 .padding {
@@ -65,6 +66,7 @@ body {
 	padding: 2px 20px;
 	/*height: 100%;*/
 	margin-right: 4px;
+	margin-bottom: 1px;
 	height: 104px;
 	line-height: 104px;
 	vertical-align: middle;

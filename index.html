@@ -26,45 +26,29 @@ tertr
 <div>Hrllo
 sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfdhsdljkghdlskjghldsjkfghldsk jghldsjkfghlhfghfhklkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfh klkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkk kksdljkfhgl dsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfhklkkkkk kkkkkkkkkkkkkkk kk kkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlh fghfhklkkkkkk kkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk ksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlds fjghds;lfjhgldsjfghldsjghldsgohs;doghdlkjfghldjkghljdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br></div>
 
+
+
 <div id='container'>
 	<div id='event_selector'>
 	</div>
 
 	<div id='event_container'>
 
-		<!-- todo move into php generator-->
-		<div id="date_20160623" class="dateRow">
-			<div class="padding"></div>
-			<div class="date rounded-corners available">Monday 16th June</div>
-
-			<div class='people'>
-				<div id="personList_20160623_available" class='personList'>
-					<?php
-					echo displayAvailablePeopleForDate(1, 2);
-					?>
-				</div>
-				<div id="personList_20160623_unavailable" class='personList'>
-					<?php
-					echo displayUnavailablePeopleForDate(1, 2);
-					?>
-				</div>
-				<div id="personList_20160623_undecided" class='personList'>
-					<?php
-					echo displayUndecidedPeopleForDate(1, 2);
-					?>
-				</div>
-			</div>
-		</div>
-
-<script type="text/javascript">
-
-	$('.date').click(function() { 
-		toggle($(this));
-	});
+		<?php
+			$dates = getDates(1);
+			foreach ($dates as $date) {
+				echo getRowForDate($date);
+			}
+		?>
 
 
+	<script type="text/javascript">
 
-</script>
+		$('.date').click(function() { 
+			toggle($(this));
+		});
+
+	</script>
 
 	</div>
 

@@ -16,13 +16,15 @@
 		status = "available";
 	}
 
+	var date = $(object).attr('id').substring(5);
+	// alert(date.substring(5));
 	//remove person
-	$('#username_test').remove();
+	$('#username_' + date + '_test').remove();
 
 	//add person back in new row
-	$person = `<div id='username_test' class='person rounded-corners ` + status + `'> 
+	$person = `<div id='username_` + date + `_test' class='person rounded-corners ` + status + `'> 
 					<div class='avatar'><img src='images/default.png'></div>
 					<div class='name'>Testy McTest</div>
 				</div>`;
-	$("#personList_20160623_" + status).append($person);
+	$("#personList_" + date + "_" + status).append($person);
 }
