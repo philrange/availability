@@ -1,60 +1,11 @@
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Availability</title>
 
-	<link rel="shortcut icon" href="/favicon.ico">
-
-	<link rel="stylesheet" href="/styles/style.css">
-
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
-	<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/themes/smoothness/jquery-ui.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
-
-
-	<?php 
-	 require_once 'scripts/../../db_config.php';
-	 require_once 'scripts/db.php';
-	 require_once 'scripts/html.php';
-	 require_once 'scripts/person.php';
-	?>
-
+	<meta http-equiv="refresh" content="0;URL='login.html'" /> 
 </head>
-
 <body>
 
-tertr
-<div>Hrllo
-sdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br>sdfsdsfdhsdljkghdlskjghldsjkfghldsk jghldsjkfghlhfghfhklkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfh klkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkk kksdljkfhgl dsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlhfghfhklkkkkk kkkkkkkkkkkkkkk kk kkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlh fghfhklkkkkkk kkkkkkkkkkkkkk kkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkkk ksdljkfhgldsjkghsdljkghdlskjghldsjkfghldskjghldsjkfghlds fjghds;lfjhgldsjfghldsjghldsgohs;doghdlkjfghldjkghljdfsdsfd<br>sdfsdsfd<br>sdfsdsfd<br></div>
-
-
-
-<div id='container'>
-	<div id='event_selector'>
-	</div>
-
-	<div id='event_container'>
-
-		<?php
-			$dates = getDates(1);
-			foreach ($dates as $date) {
-				echo getRowForDate($date);
-			}
-		?>
-
-
-	<script type="text/javascript">
-
-		$('.date').click(function() { 
-			toggle($(this));
-		});
-
-	</script>
-
-	</div>
-
-</div>
-
-
-<script src="scripts/main.js"></script>
 </body>
 </html>

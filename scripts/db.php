@@ -18,6 +18,28 @@ function connectToDb() {
     return $conn;
 }
 
+function getStatus($event, $person, $date) {
+
+    $sql = "select available from availability a , dates d where a.date = d.id and a.event = d.event  and a.event = " . $event . " and person = " . $person . " and d.date = '" . $date . "'";
+
+
+    $conn = connectToDb();
+    $result = mysqli_query($conn, $sql);
+
+    $available = "undecided";
+    if (mysqli_num_rows($result) > 0) {
+        // output data of each row
+        while($row = mysqli_fetch_assoc($result)) {
+            $available = $row["available"];
+            break;
+        }
+    } 
+
+    mysqli_close($conn);
+    return $available;
+
+}
+
 function getDates($event) {
     $sql = "select date from dates where event = " . $event;
 
@@ -34,7 +56,8 @@ function getDates($event) {
     } else {
         echo "0 results found.";
     }
-
+    
+    mysqli_close($conn);
     return $dates;
 }
 
@@ -70,14 +93,9 @@ function getPeople($sql) {
         //echo "0 results found.";
     }
 
+    mysqli_close($conn);
     return $people;
 }
-
-
-
-
-
-//mysqli_close($conn);
 
 
 ?> 

@@ -14,10 +14,10 @@ create table people (
 	id int(16) PRIMARY KEY auto_increment,
 	username varchar(32),
 	displayName varchar(32),
-	password varchar(32),
-	salt varchar(32),
+	password varchar(256),
 	picture varchar(128),
-	email varchar(128)
+	email varchar(128),
+	admin varchar(8) default null
 );
 
 create table availability (

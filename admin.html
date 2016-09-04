@@ -1,0 +1,63 @@
+<html>
+<head>
+	<title>Admin</title>
+
+	<link rel="stylesheet" href="/styles/style.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+
+	<?php 
+	 require_once 'scripts/../../db_config.php';
+	 require_once 'scripts/db.php';
+	 require_once 'scripts/session.php';
+	?>
+
+</head>
+
+<body>
+
+<div id='admin-status'>
+	
+	You are logged in as <?php echo $_SESSION['login_user']; ?>. 
+	Admin status: <?php 
+	if (strcmp($admin_status, "yes") == 0) {
+		echo "You are admin.";
+	} else {
+		echo "You are not admin.";
+	}
+	?>
+</div>
+
+
+<div id='admin-controls'>
+
+<br><br>
+Remove user
+<br>
+Add date
+<br>
+Remove date
+<br>
+
+<br>
+<br>
+<br>
+<br>
+</div>
+
+
+</body>
+
+<script type="text/javascript">
+	admin_status = "<?php echo $admin_status; ?>"; 
+
+
+	if (admin_status === "yes") {
+		$("#admin-controls").show();
+	} else {
+		$("#admin-controls").hide();
+	};
+	
+</script>
+
+</html>

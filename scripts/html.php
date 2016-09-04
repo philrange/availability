@@ -1,11 +1,13 @@
 <?php
 
 
-function getRowForDate($date) {
+function getRowForDate($event, $person, $date) {
 
-$html = '<div id="dateRow_' . $date . '" class="dateRow">
+$status = getStatus($event, $person, $date);
+
+$html = '<div class="dateRow">
 			<div class="padding"></div>
-			<div id="date_' . $date . '" class="date rounded-corners available">Monday 16th June</div>
+			<div id="date_' . $date . '_' . $status .'" class="date rounded-corners ' . $status . '">' . $date . '</div>
 
 			<div class=\'people\'>
 				<div id="personList_' . $date . '_available" class=\'personList\'>
@@ -55,6 +57,10 @@ function displayPerson($person, $date) {
 			</div>";
 
   return $html;
+}
+
+function getEvents() {
+	return "Karting";
 }
 
 ?> 

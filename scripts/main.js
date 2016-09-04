@@ -1,4 +1,4 @@
-	function toggle (object) {
+	function toggle (object, username) {
 
 		var status;
 	//change colour of date
@@ -16,15 +16,15 @@
 		status = "available";
 	}
 
-	var date = $(object).attr('id').substring(5);
-	// alert(date.substring(5));
+	var date = $(object).attr('id').substring(5, 15);
+	 // alert(date.substring(1, 10));
 	//remove person
-	$('#username_' + date + '_test').remove();
+	$('#username_' + date + '_' + username).remove();
 
 	//add person back in new row
-	$person = `<div id='username_` + date + `_test' class='person rounded-corners ` + status + `'> 
-					<div class='avatar'><img src='images/default.png'></div>
-					<div class='name'>Testy McTest</div>
+	$person = `<div id='username_` + date + `_` + username + `' class='person rounded-corners ` + status + `'> 
+					<div class='avatar'><img src='` + picture + `'></div>
+					<div class='name'>` + displayName + `</div>
 				</div>`;
 	$("#personList_" + date + "_" + status).append($person);
 }
