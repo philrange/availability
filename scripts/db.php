@@ -20,7 +20,7 @@ function connectToDb() {
 
 function getStatus($event, $person, $date) {
 
-    $sql = "select available from availability a , dates d where a.date = d.id and a.event = d.event  and a.event = " . $event . " and person = " . $person . " and d.date = '" . $date . "'";
+    $sql = "select available from availability where event = " . $event . " and person = " . $person . " and date = " . $date;
 
 
     $conn = connectToDb();
@@ -41,7 +41,7 @@ function getStatus($event, $person, $date) {
 }
 
 function getDates($event) {
-    $sql = "select date from dates where event = " . $event;
+    $sql = "select id, date from dates where event = " . $event;
 
     $conn = connectToDb();
     $result = mysqli_query($conn, $sql);
@@ -51,7 +51,8 @@ function getDates($event) {
         // output data of each row
         while($row = mysqli_fetch_assoc($result)) {
             $date = $row["date"];
-            $dates[] = $date;
+            $date_id = $row["id"];
+            $dates[$date_id] = $date;
         }
     } else {
         echo "0 results found.";
@@ -63,7 +64,7 @@ function getDates($event) {
 
 function getPeopleForDate($event, $date, $status) {
 
-    $sql = "SELECT p.username, p.displayName, p.picture, a.available from availability a, people p, dates d where a.person = p.id and a.date = d.id and a.event = " . $event . " and d.date = '" . $date . "' and a.available = '" . $status . "'";
+    $sql = "SELECT p.username, p.displayName, p.picture, a.available from availability a, people p where a.person = p.id and a.event = " . $event . " and a.date = " . $date . " and a.available = '" . $status . "'";
 
     return getPeople($sql);
 }
@@ -97,5 +98,20 @@ function getPeople($sql) {
     return $people;
 }
 
+    function saveDate($event, $user, $date, $status) {
+        $conn = connectToDb();
+        $sql = "INSERT INTO availability (event, person, date, available) VALUES(1, " . $user . ", " . $date . ", '" . $status . "') ON DUPLICATE KEY UPDATE available='" . $status . "'";
+        // echo $sql;
+        $result = mysqli_query($conn, $sql);
+
+        $error = "";
+        if (!$result) {
+            $error = "Error creating user: " . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
+
+        return $error;
+    }
 
 ?> 

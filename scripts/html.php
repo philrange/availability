@@ -1,13 +1,13 @@
 <?php
 
 
-function getRowForDate($event, $person, $date) {
+function getRowForDate($event, $person, $date, $date_string) {
 
 $status = getStatus($event, $person, $date);
 
 $html = '<div class="dateRow">
 			<div class="padding"></div>
-			<div id="date_' . $date . '_' . $status .'" class="date rounded-corners ' . $status . '">' . $date . '</div>
+			<div id="date_' . $date . '_' . $status .'" class="date rounded-corners ' . $status . '">' . $date_string . '</div>
 
 			<div class=\'people\'>
 				<div id="personList_' . $date . '_available" class=\'personList\'>

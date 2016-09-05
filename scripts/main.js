@@ -16,8 +16,8 @@
 		status = "available";
 	}
 
-	var date = $(object).attr('id').substring(5, 15);
-	 // alert(date.substring(1, 10));
+	var date = $(object).attr('id').match("_[0-9]+_");
+    date = date.toString().replace(/_/g, '');
 	//remove person
 	$('#username_' + date + '_' + username).remove();
 
