@@ -126,7 +126,7 @@ body {
 .padding {
 	display: block;
 	float: left;
-	width: 280px;
+	width: 120px;
 	height: 104;
 }
 
@@ -186,6 +186,7 @@ body {
 	line-height: 32px;
 	float: left;
 	vertical-align: middle;
+	font-size: 14px;
 }
 
 #admin-controls {
