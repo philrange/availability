@@ -5,9 +5,11 @@ function getRowForDate($event, $person, $date, $date_string) {
 
 $status = getStatus($event, $person, $date);
 
+$dayOfWeek = date('l jS F', strtotime($date_string));
+
 $html = '<div class="dateRow">
 			<div class="padding"></div>
-			<div id="date_' . $date . '_' . $status .'" class="date rounded-corners ' . $status . '">' . $date_string . '</div>
+			<div id="date_' . $date . '_' . $status .'" class="date rounded-corners ' . $status . '">' . $dayOfWeek . '</div>
 
 			<div class=\'people\'>
 				<div id="personList_' . $date . '_available" class=\'personList\'>
