@@ -61,8 +61,5 @@ function displayPerson($person, $date) {
   return $html;
 }
 
-function getEvents() {
-	return "Karting";
-}
 
 ?> 

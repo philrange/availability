@@ -100,7 +100,7 @@ function getPeople($sql) {
 
     function saveDate($event, $user, $date, $status) {
         $conn = connectToDb();
-        $sql = "INSERT INTO availability (event, person, date, available) VALUES(1, " . $user . ", " . $date . ", '" . $status . "') ON DUPLICATE KEY UPDATE available='" . $status . "'";
+        $sql = "INSERT INTO availability (event, person, date, available) VALUES(" . $event . ", " . $user . ", " . $date . ", '" . $status . "') ON DUPLICATE KEY UPDATE available='" . $status . "'";
         // echo $sql;
         $result = mysqli_query($conn, $sql);
 
@@ -112,6 +112,30 @@ function getPeople($sql) {
         mysqli_close($conn);
 
         return $error;
+    }
+
+    function getEventName($event) {
+       $conn = connectToDb();
+        $sql = "select name from events where id = " . $event;
+        $result = mysqli_query($conn, $sql);
+
+        if ($result) {
+            if (mysqli_num_rows($result) > 0) {
+                // output data of each row
+                while($row = mysqli_fetch_assoc($result)) {
+                    $name = $row["name"];
+                }
+            } else {
+                //echo "0 results found.";
+                $name = "";
+            }
+        } else {
+            $name =  "Error getting title: " . mysqli_error($conn);
+        }
+
+        mysqli_close($conn);
+
+        return $name;
     }
 
 ?> 

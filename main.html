@@ -23,6 +23,7 @@
 
 <body>
 
+<?php $event = 1; ?>
 
 <div id='header'>
 	<div class='dropdown-container'>
@@ -44,7 +45,7 @@
 <div id='container'>
 
 	<div id='event_selector'>
-		<div class='event'>Karting</div>
+		<div class='event'><?php echo getEventName($event); ?></div>
 	</div>
 
 <div id='legend'>
@@ -60,7 +61,7 @@
 	<div id='event_container'>
 
 		<?php
-			$dates = getDates(1);
+			$dates = getDates($event);
 			foreach ($dates as $date_id => $date) {
 				echo getRowForDate(1, $login_id, $date_id, $date);
 			}
@@ -90,6 +91,7 @@
 	</div>
 	<script type="text/javascript">
 		user_id = <?php echo $login_id; ?>;
+		event_id = <?php echo $event; ?>;
 		username = "<?php echo $login_username; ?>";
 		$("#saveButton").click(function() {
 			
@@ -108,7 +110,7 @@ $.each( $(".person[id$=_" + username + "]"), function () {
 		$.ajax({        
 		       type: "POST",
 		       url: "scripts/save.php",
-		       data: {"event_id" : 1,
+		       data: {"event_id" : event_id,
 		   			  "user_id" : user_id,
 		   			  "dates" : dates},
 		       success: function(response) {
