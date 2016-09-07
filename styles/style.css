@@ -126,7 +126,7 @@ body {
 .padding {
 	display: block;
 	float: left;
-	width: 80px;
+	width: 40px;
 	height: 104;
 }
 
@@ -136,7 +136,7 @@ body {
 	margin-right: 4px;
 	margin-bottom: 1px;
 	height: 104px;
-	width: 200px;
+	width: 180px;
 	line-height: 104px;
 	vertical-align: middle;
 	user-select: none;
