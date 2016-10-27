@@ -41,7 +41,7 @@ function getStatus($event, $person, $date) {
 }
 
 function getDates($event) {
-    $sql = "select id, date from dates where event = " . $event;
+    $sql = "select id, date from dates where event = " . $event . " order by date";
 
     $conn = connectToDb();
     $result = mysqli_query($conn, $sql);
